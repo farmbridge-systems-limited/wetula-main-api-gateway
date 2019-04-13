@@ -3,26 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Http\traits\ApiResponser;
+use App\Services\FarmersService;
 use Carbon\Carbon;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\{Http\JsonResponse, Http\Request, Http\Response, Support\Facades\DB};
 
 class FarmerInfoController extends Controller
 {
     use ApiResponser;
 
-    public function __construct()
-    {
+    /**
+     * The service to consume the farmers microservice
+     * @var FarmersService
+     */
+    public $farmersService;
 
+    public function __construct(FarmersService $farmersService)
+    {
+        $this->farmersService = $farmersService;
     }
 
     /**
      * Return the full list of farmers both verified and unverified
-     * @author Danquah Bernard White
+     * @throws GuzzleException
      * @api /farmers
+     * @author Danquah Bernard White
      */
     public function index()
     {
-        return 'farmer list';
+        return $this->successResponse($this->farmersService->obtainFarmers());
     }
 
     /**
