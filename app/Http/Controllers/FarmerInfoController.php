@@ -2,17 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BankInfo;
-use App\Models\FarmerEnterprise;
-use App\Models\FarmerInfo;
-use App\Models\Land;
-use App\Models\LandDocument;
-use App\traits\ApiResponser;
+use App\Http\traits\ApiResponser;
 use Carbon\Carbon;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
+use Illuminate\{Http\JsonResponse, Http\Request, Http\Response, Support\Facades\DB};
 
 class FarmerInfoController extends Controller
 {
@@ -30,7 +22,7 @@ class FarmerInfoController extends Controller
      */
     public function index()
     {
-
+        return 'farmer list';
     }
 
     /**
@@ -76,9 +68,7 @@ class FarmerInfoController extends Controller
      */
     public function destroy($farmer_info_id): JsonResponse
     {
-        $farmer_info = FarmerInfo::findOrFail($farmer_info_id);
-        $farmer_info->delete();
-        return $this->successResponse($farmer_info);
+
     }
 
 

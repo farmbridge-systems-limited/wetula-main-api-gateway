@@ -9,8 +9,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\BankInfo;
-use App\traits\ApiResponser;
+use App\Http\traits\ApiResponser;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -25,7 +24,7 @@ class BankInfoController extends Controller
      * @param $farmer_info_id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($farmer_info_id): JsonResponse
+    public function show($farmer_info_id)
     {
 
     }

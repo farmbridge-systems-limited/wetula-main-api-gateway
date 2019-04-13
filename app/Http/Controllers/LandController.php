@@ -9,8 +9,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Land;
-use App\traits\ApiResponser;
+use App\Http\traits\ApiResponser;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -19,7 +18,7 @@ class LandController extends Controller
 {
     use ApiResponser;
 
-    public function show($farmer_info_id, $land_id): JsonResponse
+    public function show($farmer_info_id, $land_id)
     {
 
     }
